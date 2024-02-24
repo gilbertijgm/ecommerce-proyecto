@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import { initMongoDB } from './config/conectionDB.js';
+import userRoutes from './routes/user.route.js'
 import authRoutes from './routes/auth.route.js'
 import productRoutes from './routes/product.route.js'
 import blogRoutes from './routes/blog.route.js'
@@ -31,6 +32,7 @@ app.use(errorHandler);
 app.use(cookieParser());
 
 //routes
+app.use('/api/user', userRoutes)
 app.use('/api/auth', authRoutes)
 app.use('/api/products', productRoutes)
 app.use('/api/blogs', blogRoutes)
